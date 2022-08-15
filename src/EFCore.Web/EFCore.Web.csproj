@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\EFCore.Inheritance.Cascade\EFCore.Inheritance.Cascade.csproj" />
+    <ProjectReference Include="..\EFCore.Inheritance.Cascade\EFCore.Inheritance.Cascade.csproj" />
     <ProjectReference Include="..\EFCore.Inheritance.TablePerHierarchy\EFCore.Inheritance.TablePerHierarchy.csproj" />
     <ProjectReference Include="..\EFCore.Inheritance.TablePerType\EFCore.Inheritance.TablePerType.csproj" />
   </ItemGroup>
