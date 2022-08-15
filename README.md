@@ -48,7 +48,7 @@ public class RssBlog : Blog
 }
 ```
 
-You can configure the name and type of the discriminator column and the values that are used to identify each type in the hierarchy:
+> You can configure the name and type of the discriminator column and the values that are used to identify each type in the hierarchy:
 ```C#
 internal class BlogEntityTypeConfiguration : IEntityTypeConfiguration<Blog>
 {
