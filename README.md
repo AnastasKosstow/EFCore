@@ -23,7 +23,7 @@ Table per hierarchy
 > By default, EF maps the inheritance using the table-per-hierarchy (TPH) pattern. TPH uses a single table to store the data for all types in the hierarchy, and a discriminator column is used to identify which type each row represents.
 
 Models
-```
+```C#
 public enum BlogType : short
 {
     EF = 1,
@@ -49,7 +49,7 @@ public class RssBlog : Blog
 ```
 
 You can configure the name and type of the discriminator column and the values that are used to identify each type in the hierarchy:
-```
+```C#
 internal class BlogEntityTypeConfiguration : IEntityTypeConfiguration<Blog>
 {
     public void Configure(EntityTypeBuilder<Blog> builder)
