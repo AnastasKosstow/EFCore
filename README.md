@@ -66,9 +66,7 @@ Table per type
 --------------
 > Table-per-type inheritance uses a separate table in the database to maintain data for non-inherited properties and key properties for each type in the inheritance hierarchy.
 
-> Table per Type is about representing inheritance relationships as relational foreign key associations.
-> Every class and subclass including abstract classes has its own table.
-> The table for subclasses contains columns only for each noninherited property along with a primary key that is also a foreign key of the base class table.
+> Table per Type is about representing inheritance relationships as relational foreign key associations. Every class and subclass including abstract classes has its own table. The table for subclasses contains columns only for each noninherited property along with a primary key that is also a foreign key of the base class table.
 
 > Each user has a navigation property: BillingInfo
 ```C#
