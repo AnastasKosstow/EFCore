@@ -156,3 +156,12 @@ Optional Relationships (nullable foreign key)
 | ClientSetNull (Default) | Foreign key properties are set to null | None
 | SetNull | Foreign key properties are set to null | Foreign key properties are set to null
 | Restrict | None | None
+
+Required Relationships (non-nullable foreign key)
+
+| Behavior Name   | Effect on dependent/child in memory | Effect on dependent/child in database |
+|-----------------|-------------------------------------|---------------------------------------|
+| Cascade | Entities are deleted | Entities are deleted
+| ClientSetNull (Default) | SaveChanges throws | None
+| SetNull | SaveChanges throws | SaveChanges throws
+| Restrict | None | None
