@@ -8,6 +8,8 @@ Table of content
 -----------------
 
 * [Inheritance](#inheritance)
+* [Cascade delete](#cascade-delete)
+ 
 
 Inheritance
 ==========================
@@ -111,3 +113,46 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 
 <strong>The base class and subclasses have its own table. 
 The table for subclasses contains columns only for each noninherited property along with a primary key that is also a foreign key of the base class table.</strong>
+
+
+Cascade delete
+==========================
+
+<strong>Cascade delete allows the deletion of a row to trigger the deletion of related rows automatically.</strong>
+
+> EF Core covers a closely related concept and implements several different delete behaviors and allows for the configuration of the delete behaviors of individual relationships.
+> In Entity Framework Core, the OnDelete Fluent API method is used to specify the delete behavior for a dependent entity when the principal is deleted.
+> The OnDelete method takes a DeleteBehavior enum as a parameter:
+
+<strong>Cascade:</strong> Child/dependent entity should be deleted
+<strong>Restrict:</strong> Dependents are unaffected
+<strong>SetNull:</strong> The foreign key values in dependent rows should update to NULL 
+
+To configure Cascade delete use EntityTypeConfiguration:
+```C#
+    // DeleteBehavior.Cascade
+    // Entities will be deleted when the related principal is deleted
+    builder
+        .HasMany(x => x.Posts)
+        .WithOne(x => x.Blog)
+        .OnDelete(DeleteBehavior.Cascade);
+
+    // DeleteBehavior.Restrict
+    // Values of foreign key properties in dependent entities are set to null when the related principal is deleted
+    // In order to work, Blog navigation property in Post must be nullable
+    builder
+        .HasMany(x => x.Posts)
+        .WithOne(x => x.Blog)
+        .OnDelete(DeleteBehavior.Restrict);
+```
+
+<h4>Delete Behaviors</h4>
+
+Optional Relationships (nullable foreign key)
+
+| Behavior Name   | Effect on dependent/child in memory | Effect on dependent/child in database |
+|-----------------|-------------------------------------|---------------------------------------|
+| Cascade | Entities are deleted | Entities are deleted
+| ClientSetNull (Default) | Foreign key properties are set to null | None
+| SetNull | Foreign key properties are set to null | Foreign key properties are set to null
+| Restrict | None | None
