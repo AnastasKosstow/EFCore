@@ -61,3 +61,57 @@ internal class BlogEntityTypeConfiguration : IEntityTypeConfiguration<Blog>
     }
 }
 ```
+
+Table per type
+--------------
+> Table-per-type inheritance uses a separate table in the database to maintain data for non-inherited properties and key properties for each type in the inheritance hierarchy.
+
+ - Table per Type is about representing inheritance relationships as relational foreign key associations.
+ - Every class and subclass including abstract classes has its own table.
+ - The table for subclasses contains columns only for each noninherited property along with a primary key that is also a foreign key of the base class table.
+
+Models
+
+Each user has a navigation property: BillingInfo
+```C#
+public class User
+{
+    public int Id { get; set; }
+    ...
+
+    public virtual BillingDetail BillingInfo { get; set; }
+}
+```
+
+```C#
+public abstract record BillingDetail
+{
+    public int Id { get; set; }
+    public string Owner { get; set; }
+    public string Number { get; set; }
+}
+
+public record BankAccount : BillingDetail
+{
+    public string BankName { get; set; }
+}
+
+public record CreditCard : BillingDetail
+{
+    public string CardType { get; set; }
+}
+```
+
+> And the configuration: 
+```C#
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.Entity<BankAccount>().ToTable("BankAccounts");
+    modelBuilder.Entity<CreditCard>().ToTable("CreditCards");
+
+    modelBuilder.ApplyConfigurationsFromAssembly(typeof(TablePerTypeDbContext).Assembly);
+}
+```
+
+<strong>The base class and subclasses have its own table. 
+The table for subclasses contains columns only for each noninherited property along with a primary key that is also a foreign key of the base class table.</strong>
