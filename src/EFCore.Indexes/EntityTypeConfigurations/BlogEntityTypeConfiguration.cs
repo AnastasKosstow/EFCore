@@ -23,7 +23,7 @@ internal class BlogEntityTypeConfiguration : IEntityTypeConfiguration<Blog>
 
 
 
-        //------------------------------------------------------------------ Multi-column index index ------------------------------------------------------------------//
+        //--------------------------------------------------------------------- Multi-column index ---------------------------------------------------------------------//
 
         // multi-column index, also known as a composite index
         builder
