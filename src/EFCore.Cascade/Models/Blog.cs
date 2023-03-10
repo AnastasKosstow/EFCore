@@ -1,4 +1,4 @@
-﻿namespace EFCore.Inheritance.Cascade.Models;
+﻿namespace EFCore.Cascade.Models;
 
 public class Blog
 {

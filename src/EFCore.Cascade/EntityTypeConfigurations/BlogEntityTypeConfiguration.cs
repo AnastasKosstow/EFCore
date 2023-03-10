@@ -1,8 +1,8 @@
-﻿using EFCore.Inheritance.Cascade.Models;
+﻿using EFCore.Cascade.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace EFCore.Inheritance.Cascade.EntityTypeConfigurations;
+namespace EFCore.Cascade.EntityTypeConfigurations;
 
 internal class BlogEntityTypeConfiguration : IEntityTypeConfiguration<Blog>
 {

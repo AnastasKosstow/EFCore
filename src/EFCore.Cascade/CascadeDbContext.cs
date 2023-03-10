@@ -1,7 +1,7 @@
-﻿using EFCore.Inheritance.Cascade.Models;
+﻿using EFCore.Cascade.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace EFCore.Inheritance.Cascade;
+namespace EFCore.Cascade;
 
 public class CascadeDbContext : DbContext
 {
