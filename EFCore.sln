@@ -17,6 +17,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cascade", "cascade", "{CA33
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCore.Inheritance.Cascade", "src\EFCore.Inheritance.Cascade\EFCore.Inheritance.Cascade.csproj", "{0F92870E-31B7-4739-AF5D-04C331AE5CE8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "indexes", "indexes", "{70F2D30C-6B23-416E-AEA2-01B2353B1BF4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCore.Indexes", "src\EFCore.Indexes\EFCore.Indexes.csproj", "{1F8D9873-1655-4B58-A4A7-7F4EEDD03B1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,10 @@ Global
 		{0F92870E-31B7-4739-AF5D-04C331AE5CE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F92870E-31B7-4739-AF5D-04C331AE5CE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F92870E-31B7-4739-AF5D-04C331AE5CE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F8D9873-1655-4B58-A4A7-7F4EEDD03B1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F8D9873-1655-4B58-A4A7-7F4EEDD03B1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F8D9873-1655-4B58-A4A7-7F4EEDD03B1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F8D9873-1655-4B58-A4A7-7F4EEDD03B1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +58,8 @@ Global
 		{C0B9137B-B62E-45C8-9301-76D6BD0EBD7F} = {E1A0D51C-C942-4A46-9DD6-56516B9722A5}
 		{CA33D6A2-9A6D-4D47-8E18-3F5F43D3A26B} = {E1A0D51C-C942-4A46-9DD6-56516B9722A5}
 		{0F92870E-31B7-4739-AF5D-04C331AE5CE8} = {CA33D6A2-9A6D-4D47-8E18-3F5F43D3A26B}
+		{70F2D30C-6B23-416E-AEA2-01B2353B1BF4} = {E1A0D51C-C942-4A46-9DD6-56516B9722A5}
+		{1F8D9873-1655-4B58-A4A7-7F4EEDD03B1D} = {70F2D30C-6B23-416E-AEA2-01B2353B1BF4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9423BAB1-F511-4528-8379-A56BFE29981A}
