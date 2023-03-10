@@ -9,6 +9,7 @@ Table of content
 
 * [Inheritance](#inheritance)
 * [Cascade delete](#cascade-delete)
+* [Indexes](#indexes)
  
 
 Inheritance
@@ -165,3 +166,49 @@ Required Relationships (non-nullable foreign key)
 | ClientSetNull (Default) | SaveChanges throws | None
 | SetNull | SaveChanges throws | SaveChanges throws
 | Restrict | None | None
+
+
+
+Indexes
+==========================
+
+<strong>In SQL, indexes are data structures that improve the performance of database queries. An index is a data structure that is built on one or more columns of a table. The index stores a copy of the indexed column(s) in a separate data structure, along with a reference to the original row in the table.
+
+When a query is executed against a table, the database engine can use the index to quickly locate the rows that match the query criteria. This can significantly improve the performance of queries, especially when the table contains a large number of rows.</strong>
+
+<strong>Pros:</strong>
+> Faster query performance: Indexes can significantly improve the performance of queries by allowing the database engine to quickly locate the rows that match the query criteria.
+> Sorting: Indexes can also improve the performance of sorting operations, by allowing the database engine to read the data in a pre-sorted order.
+> Clustering: Indexes can be used to cluster related rows of data together, improving query performance for related data.
+
+<strong>Cons:</strong>
+> Increased storage: Indexes require additional storage space on disk, which can be a significant consideration for large databases.
+> Increased overhead: Indexes also require additional processing time to create and maintain, which can impact overall system performance.
+> Insert and update performance: When inserting or updating data in a table with indexes, the indexes must be updated as well, which can slow down the performance of these operations.
+
+B-tree index
+```C#
+    builder
+        .HasIndex(blog => blog.CreatedOn)
+        .IsClustered(true);
+```
+
+Multi-column index
+```C#
+    builder
+        .HasIndex(blog => blog.CreatedOn)
+        .IsClustered(true);
+```
+
+Generalized Inverted Index
+```C#
+    builder
+        .HasGeneratedTsVectorColumn(
+             blog => blog.Search,
+             config: "simple",
+             blog => new { blog.Name, blog.Description })
+        .HasIndex(blog => blog.Search)
+        .HasMethod("GIN");
+```
+
+For more information about different types of indexes see BlogEntityTypeConfiguration class in `EFCore.Indexes` project.
